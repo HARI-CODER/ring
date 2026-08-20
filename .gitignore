@@ -1,0 +1,7 @@
+.venv/
+*.log
+web/node_modules/
+web/.next/
+__pycache__/
+gestures.json
+.claude/

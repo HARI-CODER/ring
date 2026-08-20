@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+/*
+ * Dark-committed dashboard. Series colours are the dark-mode steps of a
+ * validated categorical palette (blue / orange / aqua), which clears the
+ * all-pairs colour-vision-deficiency and normal-vision separation gates
+ * against this surface.
+ */
+:root {
+  color-scheme: dark;
+
+  --surface-0: #121211;
+  --surface-1: #1a1a19;
+  --surface-2: #212120;
+  --surface-3: #2c2c2a;
+  --border: #383835;
+  --grid: #4a4a46;
+
+  --text-primary: #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted: #8a8a80;
+
+  --axis-x: #3987e5; /* categorical slot 1 */
+  --axis-y: #d95926; /* categorical slot 2 */
+  --axis-z: #199e70; /* categorical slot 3 */
+
+  --hr: #e66767; /* categorical slot 8 */
+  --accent: #3987e5;
+
+  --good: #199e70;
+  --good-border: #14624a;
+  --warn: #c98500;
+  --warn-border: #6b4700;
+}
+
+body {
+  background: var(--surface-0);
+  color: var(--text-primary);
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  /* Two-phase squeeze, so it reads as systole/diastole rather than a throb. */
+  14% {
+    transform: scale(1.16);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.08);
+  }
+  56% {
+    transform: scale(1);
+  }
+}
+
+@keyframes stride {
+  0%,
+  100% {
+    transform: rotate(16deg);
+  }
+  50% {
+    transform: rotate(-16deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
